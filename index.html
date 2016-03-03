@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Мы хотим, чтобы вы были пер...</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<style>
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+/*
+ * SlotMachine
+ */
+#randomize {
+	padding-top:100px;
+    height: 400px;
+}
+
+#randomize .row > div.col-xs-4 {
+    padding-left: 35px;
+}
+
+#randomize .row > div.col-xs-4 > div {
+    width: 320px;
+    height: 320px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.randomizeMachine {
+    width: 320px;
+    height: 320px;
+}
+
+.btn-group-randomize {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: auto;
+}
+
+.btn-group-randomize div {
+    width: auto !important;
+}
+</style>
+
+
+<link rel="stylesheet" href="dist/jquery.slotmachine.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script type="text/javascript" src="dist/jquery.slotmachine.js"></script>
+
+</head>
+
+<body>
+
+<div id="randomize">
+	<div class="content container">
+
+		<div class="row">
+			<div class="col-xs-4">
+				<div>
+					<div id="machine1" class="randomizeMachine">
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+				<div>
+					<div id="machine2" class="randomizeMachine">
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+				<div>
+					<div id="machine3" class="randomizeMachine">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<div class="btn-group btn-group-justified btn-group-randomize" role="group">
+				<div id="ranomizeButton" type="button" class="btn btn-danger btn-lg">Мне повезет!</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+$(document).ready(function(){
+
+	$('#randomize').css({opacity: 0});
+
+	var attempts = 0;
+
+
+	//тут список картинок
+	var presents = [
+		'img/igor.jpg',
+		'img/iphone.jpg',
+		'img/fur.jpg',
+		'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&1',
+		'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&2',
+		'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&3',
+		'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&4',
+		'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&5',
+	];
+	var maxAttempts = 5; //на который раз выпадут все одинаковые
+
+
+
+	var animateRotateFunction = function($elem, angle) {
+		$({
+			deg: 0
+		}).animate({
+			deg: angle
+		}, {
+			duration: 1000,
+			step: function (now) {
+				$elem.css({
+					transform: 'rotate(' + now + 'deg)'
+				});
+			}
+		});
+	}
+
+
+	var getRandomFunction = function() {
+		return Math.floor(Math.random() * (presents.length  + 1));
+	}
+
+	var final = getRandomFunction();
+
+	$(presents).each(function(i, item) {
+		$('.randomizeMachine').append('<div style="width:320px;height:320px;background-position:center;background:url(\'' + item + '\');background-position:center;background-size:contain;"></div>');
+	});
+	
+	var randomizeFunction = function(activeElementIndex) {
+		if (attempts == maxAttempts) {
+			setTimeout(function() { animateRotateFunction($('.randomizeMachine'), 360); }, 2000);
+			return final;
+		}
+		return getRandomFunction();
+	}
+
+	setTimeout(function() {
+
+		var machine1 = $("#machine1").slotMachine({
+			randomize: randomizeFunction,
+			active: 0,
+			delay: 500
+		});
+
+		var machine2 = $("#machine2").slotMachine({
+			randomize: randomizeFunction,
+			active: 1,
+			delay: 500,
+			direction: 'down'
+		});
+
+		var machine3 = $("#machine3").slotMachine({
+			randomize: randomizeFunction,
+			active: 2,
+			delay: 500
+		});
+
+		$("#ranomizeButton").click(function(){
+
+			attempts++;
+
+			machine1.shuffle(5);
+
+			setTimeout(function(){
+				machine2.shuffle(5);
+			}, 500);
+
+			setTimeout(function(){
+				machine3.shuffle(5);
+			}, 1000);
+
+		})
+	
+		$('#randomize').css({opacity: 1});
+
+
+	}, 1000);
+});
+</script>
+
+</body>
+</html>
