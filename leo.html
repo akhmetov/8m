@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery UI Droppable - Visual feedback</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<style>
+#oscar {
+	background:url('img/oscar.png');
+	background-size: contain;
+	width:150px;
+	height:400px;
+	position:absolute;
+	display:block;
+	top:0;
+	left:0;
+}
+#oscar:hover {
+	-ms-transform: scale(1.1), rotate(20deg); /* IE 9 */
+	-webkit-transform: scale(1.1), rotate(20deg); /* Safari */
+	transform: scale(1.1), rotate(20deg);
+}
+#leo {
+	position:absolute;
+	width:400px;
+	height:400px;
+	top:0;
+	left:50%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	background-image: url('img/leosad.gif');
+}
+#leo.wait {
+	background-image: url('img/leowait.gif');
+}
+#leo.almost {
+	background-image: url('img/leoalmost.gif');
+}
+body.got #oscar {
+	display:none;
+}
+body.got #leo {
+	background-image: url('img/leogotoscar.gif');
+}
+
+</style>
+<script>
+$(function() {
+	$('#oscar').draggable();
+	$('#leo').droppable({
+		accept: '#oscar',
+		hoverClass: 'almost',
+		activeClass: 'wait',
+		drop: function( event, ui ) {
+			$('body').addClass('got');
+		}
+	});
+});
+</script>
+</head>
+<body>
+
+<h3>Вручи Лео Оскар:</h3>
+<div id="leo"></div>
+
+<div id="oscar"></div>
+
+
+
+</body>
+</html>
