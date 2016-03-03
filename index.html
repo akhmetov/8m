@@ -18,12 +18,17 @@ html {
  * SlotMachine
  */
 #randomize {
-	padding-top:100px;
+	// padding-top:100px;
     height: 400px;
 }
 
 #randomize .row > div.col-xs-4 {
     padding-left: 35px;
+}
+
+#randomize .row > div.col-lg-4 {
+    padding-left: 45px;
+    padding-right: 25px;
 }
 
 #randomize .row > div.col-xs-4 > div {
@@ -48,22 +53,40 @@ html {
 .btn-group-randomize div {
     width: auto !important;
 }
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+    padding-bottom: 0;
+    padding-top: 18px;
+}
+.jumbotron h1 {
+    font-weight: normal
+}
+
+#greetingText {
+    padding-top: 5px;
+}
 </style>
 
 
 <link rel="stylesheet" href="dist/jquery.slotmachine.css" type="text/css" media="screen" />
 
-<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script async src="http://c-cdn.coub.com/embed-runner.js"></script>
 <script type="text/javascript" src="dist/jquery.slotmachine.js"></script>
 
 </head>
 
 <body>
-
 <div id="randomize">
 	<div class="content container">
+        <div class="jumbotron">
+            <h1>Загадка на 8 марта</h1>
 
+            <p>Каждый мальчик МИФа вставил в квадратик картинку. Угадайте кто какую картинку вставил. Ответ присылайте в письмо с поздравлением.</p>
+        </div>
 		<div class="row">
 			<div class="col-xs-4">
 				<div>
@@ -87,6 +110,14 @@ html {
 			</div>
 		</div>
 
+        <div id="greetingText" class="row">
+            <div class="col-lg-4"><p class="js-txt-1"></p></div>
+
+            <div class="col-lg-4"><p class="js-txt-2"></p></div>
+
+            <div class="col-lg-4"><p class="js-txt-3"></p></div>
+        </div>
+
 		<div>
 			<div class="btn-group btn-group-justified btn-group-randomize" role="group">
 				<div id="ranomizeButton" type="button" class="btn btn-danger btn-lg">Мне повезет!</div>
@@ -103,21 +134,100 @@ $(document).ready(function(){
 
 	var attempts = 0;
 
-
 	//тут список картинок
 	var presents = [
-		'img/igor.jpg',
-		'img/iphone.jpg',
-		'img/fur.jpg',
-		'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&1',
-		'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&2',
-		'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&3',
-		'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&4',
-		'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&5',
+        {
+            img: 'img/igor.jpg',
+            text: 'Выпьем за любовь!',
+            is_rand: true
+        },
+        {
+		    img: 'img/iphone.jpg',
+            text: 'iPhone и так уже у всех есть, поэтому это самый бессмысленный подарок на 8 марта',
+            is_rand: true
+        },
+        {
+            img: 'img/fur.jpg',
+            text: 'Шубу- шубу- шубу ем,<br>'
+                + 'Шубу ем, не спеша<br>'
+                + 'Шуба- шуба- шуба всем<br>'
+                + 'Шуба всем хороша!',
+            is_rand: true
+        },
+
+        {
+            img: 'img/crazy.gif',
+            text: 'Милые девушки, с 8 марта, женского вам счастья, такого, чтоб до дрожи в коленках. И пусть всегда у вас будет плечо на которое, при необходимости, можно опереться.',
+            is_rand: false
+        },
+        {
+            img: 'img/dm5882624.png',
+            text: '«Не иди позади меня — возможно, я не поведу тебя. Не иди впереди меня — возможно, я не последую за тобой. Иди рядом, и мы будем одним целым.»',
+            is_rand: false
+        },
+        {
+            img: 'img/saltommeister.gif',
+            text: 'Оооо, какая милая! — думает парень, когда видит девушку своей мечты. Я желаю, чтобы вы стали девушкой мечты.',
+            is_rand: false
+        },
+        {
+            img: 'img/tyz910.gif',
+            text: '<iframe src="http://coub.com/embed/4abo4?muted=false&autostart=true&originalSize=false&hideTopBar=false&startWithHD=false" allowfullscreen="true" frameborder="0" width="320" height="173"></iframe>',
+            is_rand: false
+        },
+        {
+            img: 'img/wave_cool.jpg',
+            text: 'Хорошо быть девушкой в розовом пальто,<br>'
+                + 'можно и не в розовом, но уже не то!<br>'
+                + '<br>'
+                + 'Хорошо быть женщиной в норковом манто, <br>'
+                + 'можно и не в норковом, но уже не то!<br>'
+                + '<br>'
+                + 'Хорошо быть дамою в собственном авто, <br>'
+                + 'можно и в автобусе, но уже не то!<br>'
+                + '<br>'
+                + 'Хорошо б зарплату тысяч эдак сто, <br>'
+                + 'можно и четыре, но уже не то!<br>'
+                + '<br>'
+                + 'Так девчонки милые, я всегда за то, <br>'
+                + 'чтобы в вашей жизни было б только ТО!<br>'
+                + '<br>'
+                + 'С 8 МАРТА!',
+            is_rand: true
+        },
+
+        {
+            img: 'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&1',
+            text: 'Котики, выпьем за любовь!',
+            is_rand: true
+        },
+        {
+            img: 'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&2',
+            text: 'Котики, выпьем за любовь!',
+            is_rand: true
+        },
+        {
+            img: 'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&3',
+            text: 'Котики, выпьем за любовь!',
+            is_rand: true
+        },
+        {
+            img: 'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&4',
+            text: 'Котики, выпьем за любовь!',
+            is_rand: true
+        },
+        {
+            img: 'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&5',
+            text: 'Котики, выпьем за любовь!',
+            is_rand: true
+        },
+        {
+            img: 'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&6',
+            text: 'Котики, выпьем за любовь!',
+            is_rand: true
+        }
 	];
 	var maxAttempts = 5; //на который раз выпадут все одинаковые
-
-
 
 	var animateRotateFunction = function($elem, angle) {
 		$({
@@ -142,7 +252,7 @@ $(document).ready(function(){
 	var final = getRandomFunction();
 
 	$(presents).each(function(i, item) {
-		$('.randomizeMachine').append('<div style="width:320px;height:320px;background-position:center;background:url(\'' + item + '\');background-position:center;background-size:contain;"></div>');
+		$('.randomizeMachine').append('<div style="width:320px;height:320px;background-position:center;background:url(\'' + item['img'] + '\');background-position:center;background-size:contain;"></div>');
 	});
 	
 	var randomizeFunction = function(activeElementIndex) {
@@ -152,6 +262,19 @@ $(document).ready(function(){
 		}
 		return getRandomFunction();
 	}
+
+    var messages = [];
+
+    var onStop = function(cnt) {
+        messages[messages.length] = cnt;
+
+        if (messages.length > 2) {
+            $('#greetingText').find('.js-txt-1').html(presents[messages[0]].text);
+            $('#greetingText').find('.js-txt-2').html(presents[messages[1]].text);
+            $('#greetingText').find('.js-txt-3').html(presents[messages[2]].text);
+            $('#ranomizeButton').text('Попробовать еще раз');
+        }
+    }
 
 	setTimeout(function() {
 
@@ -178,17 +301,20 @@ $(document).ready(function(){
 
 			attempts++;
 
-			machine1.shuffle(5);
+            messages = [];
+            $('#greetingText').find('p').html('');
+
+			machine1.shuffle(5, onStop);
 
 			setTimeout(function(){
-				machine2.shuffle(5);
+				machine2.shuffle(5, onStop);
 			}, 500);
 
 			setTimeout(function(){
-				machine3.shuffle(5);
+				machine3.shuffle(5, onStop);
 			}, 1000);
 
-		})
+		});
 	
 		$('#randomize').css({opacity: 1});
 
