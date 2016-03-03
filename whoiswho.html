@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="dist/jquery.ui.touch-punch.min.js"></script>
+<script async src="//c-cdn.coub.com/embed-runner.js"></script>
+<script>
+	
+var data = [
+{
+'name':'Манн Игорь',
+'post':'Научный редактор',
+'skype':''
+},
+{
+'name':'Артем Степанов',
+'post':'Генеральный директор',
+'skype':'artstep'
+},
+{
+'name':'Шагабутдинов Ренат',
+'post':'Ассистент генерального директора',
+'skype':'shagabutdinov.r'
+},
+{
+'name':'Утробин Дмитрий',
+'post':'Коммерческий директор',
+'skype':'dm5882624'
+},
+{
+'name':'Бабаев Виталий',
+'post':'Арт-директор (веб)',
+'skype':'saltommeister',
+'win':'saltommeister.png',
+'text':'Поздаравление чуть позже пришлю.'
+},
+{
+'name':'Салахиев Руслан',
+'post':'Аналитик',
+'skype':'salakhievrr'
+},
+{
+'name':'Капличный Сергей',
+'post':'Копирайтер-креатор',
+'skype':'skaplichniy'
+},
+{
+'name':'Фирсанов Михаил',
+'post':'SMM',
+'skype':'mikhail.firsanov'
+},
+{
+'name':'Манн Борис Борисович',
+'post':'Менеджер по выездной торговле',
+'skype':''
+},
+{
+'name':'Степанов Денис',
+'post':'Менеджер по выездной торговле',
+'skype':'aente1'
+},
+{
+'name':'Епифанов Николай',
+'post':'Руководитель службы доставки',
+'skype':'olga7757'
+},
+{
+'name':'Аристов Владимир',
+'post':'Курьер',
+'skype':''
+},
+{
+'name':'Лисутин Максим',
+'post':'Курьер',
+'skype':''
+},
+{
+'name':'Ракитский Сергей',
+'post':'Курьер',
+'skype':''
+},
+{
+'name':'Салахетдинов Раис',
+'post':'Водитель',
+'skype':''
+},
+{
+'name':'Видо Андрей',
+'post':'Водитель',
+'skype':''
+},
+{
+'name':'Харитонов Николай',
+'post':'Водитель',
+'skype':''
+},
+{
+'name':'Гришин Алексей',
+'post':'Заведующий складом',
+'skype':'Grishin.mif'
+},
+{
+'name':'Идрасов Муса',
+'post':'Комплектовщик',
+'skype':''
+},
+{
+'name':'Скрынников Лев',
+'post':'Менеджер по корпоративным продажам',
+'skype':'clayborne8'
+},
+{
+'name':'Богомолов Алексей',
+'post':'Арт-директор',
+'skype':'albo-sky'
+},
+{
+'name':'Евстратов Вадим',
+'post':'Принт-менеджер (внештатный)',
+'skype':'mr.odyz'
+},
+{
+'name':'Гаджиев Георгий',
+'post':'Технический директор',
+'skype':'g15rus'
+},
+{
+'name':'Мазалов Евгений (Гай)',
+'post':'Ведущий программист',
+'skype':'boombech'
+},
+{
+'name':'Ахметов Олег',
+'post':'Программист',
+'skype':'oleg.akhmetov'
+},
+{
+'name':'Иванов Евгений',
+'post':'Программист',
+'skype':'tyz910',
+'win':'tyz910.gif',
+'text':'<iframe src="//coub.com/embed/4abo4?muted=false&autostart=true&originalSize=false&hideTopBar=false&startWithHD=false" allowfullscreen="true" frameborder="0" width="320" height="173"></iframe>'
+},
+{
+'name':'Хорев Вадим',
+'post':'Программист 1С',
+'skype':''
+},
+{
+'name':'Мартыненко Олег',
+'post':'Тестировщик',
+'skype':'wave_cool',
+'win':'wave_cool.jpg',
+'text':'Хорошо быть девушкой в розовом пальто,<br>'
++ 'можно и не в розовом, но уже не то!<br>'
++ '<br>'
++ 'Хорошо быть женщиной в норковом манто, <br>'
++ 'можно и не в норковом, но уже не то!<br>'
++ '<br>'
++ 'Хорошо быть дамою в собственном авто, <br>'
++ 'можно и в автобусе, но уже не то!<br>'
++ '<br>'
++ 'Хорошо б зарплату тысяч эдак сто, <br>'
++ 'можно и четыре, но уже не то!<br>'
++ '<br>'
++ 'Так девчонки милые, я всегда за то, <br>'
++ 'чтобы в вашей жизни было б только ТО!<br>'
++ '<br>'
++ 'С 8 МАРТА!'
+},
+{
+'name':'Ковалев Алексей',
+'post':'Системный администратор (внештатный)',
+'skype':'Hayabusa-lelik'
+},
+{
+'name':'Фурманюк Евгений',
+'post':'Системный администратор (внештатный)',
+'skype':'furalol'
+},
+{
+'name':'Костелей Владимир',
+'post':'Веб-программист',
+'skype':'zzismd'
+},
+{
+'name':'Левин Кирилл',
+'post':'Веб-программист',
+'skype':'rekillpc'
+}
+];
+
+</script>
+
+<style>
+body {
+	font-family:'Comic Sans','Arial',sans-serif;
+	font-size:13px;
+}
+.ppl {
+	width:100px;
+	height:100px;
+	position:absolute;
+	z-index:50;
+}
+.ppl-wrapper {
+	position:relative;
+}
+.ppl-ava {
+	background-color:#CCC;
+	width:100px;
+	height:100px;
+	background-size:contain;
+	display:inline-block;
+	z-index:50;
+}
+.ppl-desc {
+	display:none;
+	position:absolute;
+	left:75px;
+	top:0;
+	width:200px;
+	height:50px;
+	padding:5px;
+	z-index:100;
+}
+.ppl:hover .ppl-desc {
+	display:block;
+	background-color:rgba(255,255,255,0.75);
+}
+.ppl-desc-name {
+	
+}
+.ppl-desc-post {
+	
+}
+.ppl-desc-skype {
+	
+}
+#td {
+	width:200px;
+	height:110px;
+	position: absolute;
+	bottom:5%;
+	right:5%;
+	background-image:url('img/td.gif');
+	background-size: contain;
+	z-index:100;
+}
+#panel {
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:50%;
+}
+#next {
+	position: absolute;
+	bottom:5%;
+	left:45%;
+	width:15%;
+	height:10%;
+	z-index: 500;
+}
+#next button {
+	width:100%;
+	height:100%;
+    background: pink;
+    font-size: 20px;
+    border-radius: 5px;
+    border:0;
+    outline: none;
+}
+#quit {
+	position: absolute;
+	left:45%;
+	top:45%;
+	display:none;
+}
+#greetings {
+	position: absolute;
+	top:0;
+	left:50%;
+	bottom:0;
+	right:0;
+	padding:100px;
+	background:rgba(255,255,255,0.9);
+	display: none;
+	z-index: 200;
+}
+.quiz {
+	position: absolute;
+	right:10%;
+	top:10%;
+	bottom:10%;
+	left:50%;
+	border:5px solid #999;
+	border-radius:50px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size:auto;
+	z-index:10;
+}
+body.fail .quiz {
+	border-color:red;
+}
+body.win .quiz {
+	border-color:green;
+}
+body.win #td {
+	display: none;
+}
+</style>
+</head>
+
+<body>
+<div id="panel"></div>
+<div id="td"></div>
+<div id="greetings"></div>
+<div id="next"><button onclick="findNext();">Дальше</button></div>
+<div id="quit"><big><a href="index.html">В начало</a></big></div>
+<script>
+
+function randomInteger(min, max) {
+	var rand = min - 0.5 + Math.random() * (max - min + 1)
+	rand = Math.round(rand);
+	return rand;
+}
+
+function placeRand(id) {
+	$('#' + id).css({
+		'left': randomInteger(boundsLeft, boundsWidth) + 'px',
+		'top': randomInteger(boundsTop, boundsHeight) + 'px'
+	});
+}
+
+var current = 0;
+function findNext() {
+	current++;
+	$('#greetings').html('').hide();
+	$('body').removeClass('win fail');
+	for (i = current; i < data.length; i++) {
+		if (data[i].win) {
+			current = i;
+			$('.quiz').remove();
+			if (!$('#ppl' + i).length) {
+				continue;
+			}
+			$('body').append('<div class="quiz" id="quiz' + i + '" style="background-image:url(\'win/' + data[i].win + '\');"></div>');
+			$('#quiz' + i).droppable({
+				drop: function(event, ui) {
+
+					//false
+					if(ui.draggable.attr('id') != 'ppl' + i) {
+						$('body').addClass('fail');
+						setTimeout(function() { $('body').removeClass('fail'); placeRand(ui.draggable.attr('id')); }, 500);
+
+					//true
+					} else {
+						setTimeout(function() {
+							$('body').addClass('win');
+							$('#' + ui.draggable.attr('id')).remove();
+							$('#greetings').html(data[i].text).show();
+							if (!$('.ppl').length) {
+								$('#next').remove();
+								$('#quit').show();
+							}
+						}, 1);
+						
+					}
+				}
+			});
+			break;
+		}
+	}
+	if (i > current) {
+		if ($('.ppl').length) {
+			current = 0;
+			findNext();
+		} else {
+			
+		}
+	}
+}
+
+var boundsTop, boundsLeft, boundsWidth, boundsHeight;
+
+$(function() {
+
+	boundsTop = $('#panel').height() / 10;
+	boundsLeft = $('#panel').width() / 10;
+	boundsWidth = $('#panel').width() - ($('#panel').width() / 10) - 100;
+	boundsHeight = $('#panel').height() - ($('#panel').height() / 10) - 100;
+
+	$(data).each(function(i, item) {
+		if (item.win) {
+			$('body').append('<div class="ppl" id="ppl' + i + '"><div class="ppl-wrapper">'
+				+ '<div class="ppl-ava" style="background-image:url(\'peoples/' + item.skype + '.jpg\');"></div>'
+				+ '<div class="ppl-desc">'
+					+ '<div class="ppl-desc-name">' + item.name + '</div>'
+					+ '<div class="ppl-desc-post">' + item.post + '</div>'
+					+ '<div class="ppl-desc-skype"><a href="skype:' + item.skype + '">skype:' + item.skype + '</a></div>'
+				+ '</div>'
+			+ '</div></div>');
+
+			placeRand('ppl' + i);
+		}
+	});
+
+	$('.ppl').draggable();
+
+	findNext();
+
+});
+
+
+</script>
+</body>
+</html>
