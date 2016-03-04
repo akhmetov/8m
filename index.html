@@ -301,6 +301,10 @@ $(document).ready(function(){
 
 			attempts++;
 
+            if (attempts > 2) {
+                $('#hardcore').show();
+            }
+
             messages = [];
             $('#greetingText').find('p').html('');
 
@@ -322,6 +326,8 @@ $(document).ready(function(){
 	}, 1000);
 });
 </script>
+
+<div id="hardcore" style="display:none;position: absolute;top:5%;right:5%;width:112px;height:184px"><a href="leo.html">Переключиться на режим безудержного веселья &rarr;<img src="img/hardmode.gif"></a></div>
 
 </body>
 </html>
