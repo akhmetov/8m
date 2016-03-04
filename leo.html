@@ -12,12 +12,12 @@
 #oscar {
 	background:url('img/oscar.png');
 	background-size: contain;
-	width:150px;
-	height:400px;
+	width:75px;
+	height:200px;
 	position:absolute;
 	display:block;
-	top:0;
-	left:0;
+	top:20%;
+	left:10%;
 }
 #oscar:hover {
 	-ms-transform: scale(1.1), rotate(20deg); /* IE 9 */
@@ -26,13 +26,13 @@
 }
 #leo {
 	position:absolute;
-	width:400px;
-	height:400px;
-	top:0;
+	width:40%;
+	height:70%;
+	top:15%;
 	left:50%;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: contain;
+	background-size: cover;
 	background-image: url('img/leosad.gif');
 }
 #leo.wait {
@@ -47,7 +47,49 @@ body.got #oscar {
 body.got #leo {
 	background-image: url('img/leogotoscar.gif');
 }
-
+body {
+	background:#000 url('img/oscars.jpg');
+	background-size: cover;
+	font-family: Arial,sans-serif;
+}
+h3 {
+	position: absolute;
+	top:25px;
+	left:25px;
+	font-size:25px;
+	color:#FFF;
+}
+body.got #hint {
+	display: none;
+}
+body.got h3 {
+	display: none;
+}
+body.got #next {
+	display: block;
+}
+#hint {
+	position: absolute;
+	bottom:25%;
+	left:15%;
+	color:#FFF;
+	font-size:20px;
+}
+#next {
+	position: absolute;
+	bottom:45%;
+	left:0%;
+	width:100%;
+	display: none;
+	text-align: center;
+}
+#next a {
+	color:#FFF;
+	font-size:25px;
+}
+.bg {
+	background: rgba(255,255,255,0.3);
+}
 </style>
 <script>
 $(function() {
@@ -65,12 +107,13 @@ $(function() {
 </head>
 <body>
 
-<h3>Вручи Лео Оскар:</h3>
+<h3>Вручи Лео Оскар</h3>
 <div id="leo"></div>
 
 <div id="oscar"></div>
 
+<div id="hint"><span class="bg">Возьми Оскар и отдай его Лео</span></div>
 
-
+<div id="next"><a href="#" class="bg">У Лео уже есть Оскар,<br>идём дальше &rarr;</a></div>
 </body>
 </html>
