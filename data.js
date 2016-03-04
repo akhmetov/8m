@@ -130,7 +130,9 @@ var data = [
 {
 'name':'Ахметов Олег',
 'post':'Программист',
-'skype':'oleg.akhmetov'
+'skype':'oleg.akhmetov',
+'win':'oleg.akhmetov.gif',
+'text':'<img src="win/oleg.akhmetov.2.gif">'
 },
 {
 'name':'Иванов Евгений',
