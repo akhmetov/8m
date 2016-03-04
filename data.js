@@ -14,7 +14,9 @@ var data = [
 {
 'name':'Шагабутдинов Ренат',
 'post':'Ассистент генерального директора',
-'skype':'shagabutdinov.r'
+'skype':'shagabutdinov.r',
+'win':'cats_in_box.jpg',
+'text':'<img src="win/catch_flower.gif">'
 },
 {
 'name':'Утробин Дмитрий',
@@ -182,14 +184,16 @@ var data = [
 {
 'name':'Фурманюк Евгений',
 'post':'Системный администратор (внештатный)',
-'skype':'furalol'
+'skype':'furalol',
+'win': 'panda.jpg',
+'text': 'я просто сплю - листай дальше'
 },
 {
 'name':'Костелей Владимир',
 'post':'Веб-программист',
 'skype':'zzismd',
 'win': 'simba.jpg',
-'text': 'тут текст поздравления'
+'text': 'Поздравляю с 8 марта. Всем котов!'
 },
 {
 'name':'Левин Кирилл',
