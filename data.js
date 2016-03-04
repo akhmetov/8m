@@ -133,7 +133,7 @@ var data = [
 'post':'Ведущий программист',
 'skype':'boombech',
 'win': 'fry.jpg',
-'text': 'нужен текст'
+'text':'<img src="win/from_spb.jpg">'
 },
 {
 'name':'Ахметов Олег',
