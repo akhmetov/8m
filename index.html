@@ -67,6 +67,9 @@ html {
 #greetingText {
     padding-top: 5px;
 }
+#greetingText img {
+    max-width:100%;
+}
 </style>
 
 
@@ -76,6 +79,7 @@ html {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script async src="http://c-cdn.coub.com/embed-runner.js"></script>
 <script type="text/javascript" src="dist/jquery.slotmachine.js"></script>
+<script src="data.js"></script>
 
 </head>
 
@@ -155,48 +159,6 @@ $(document).ready(function(){
                 + 'Шуба всем хороша!',
             is_rand: true
         },
-
-        {
-            img: 'img/crazy.gif',
-            text: 'Милые девушки, с 8 марта, женского вам счастья, такого, чтоб до дрожи в коленках. И пусть всегда у вас будет плечо на которое, при необходимости, можно опереться.',
-            is_rand: false
-        },
-        {
-            img: 'img/dm5882624.png',
-            text: '«Не иди позади меня — возможно, я не поведу тебя. Не иди впереди меня — возможно, я не последую за тобой. Иди рядом, и мы будем одним целым.»',
-            is_rand: false
-        },
-        {
-            img: 'img/saltommeister.gif',
-            text: 'Оооо, какая милая! — думает парень, когда видит девушку своей мечты. Я желаю, чтобы вы стали девушкой мечты.',
-            is_rand: false
-        },
-        {
-            img: 'img/tyz910.gif',
-            text: '<iframe src="http://coub.com/embed/4abo4?muted=false&autostart=true&originalSize=false&hideTopBar=false&startWithHD=false" allowfullscreen="true" frameborder="0" width="320" height="173"></iframe>',
-            is_rand: false
-        },
-        {
-            img: 'img/wave_cool.jpg',
-            text: 'Хорошо быть девушкой в розовом пальто,<br>'
-                + 'можно и не в розовом, но уже не то!<br>'
-                + '<br>'
-                + 'Хорошо быть женщиной в норковом манто, <br>'
-                + 'можно и не в норковом, но уже не то!<br>'
-                + '<br>'
-                + 'Хорошо быть дамою в собственном авто, <br>'
-                + 'можно и в автобусе, но уже не то!<br>'
-                + '<br>'
-                + 'Хорошо б зарплату тысяч эдак сто, <br>'
-                + 'можно и четыре, но уже не то!<br>'
-                + '<br>'
-                + 'Так девчонки милые, я всегда за то, <br>'
-                + 'чтобы в вашей жизни было б только ТО!<br>'
-                + '<br>'
-                + 'С 8 МАРТА!',
-            is_rand: true
-        },
-
         {
             img: 'http://thecatapi.com/api/images/get?format=src&type=gif&size=med&1',
             text: 'Котики, выпьем за любовь!',
@@ -228,6 +190,17 @@ $(document).ready(function(){
             is_rand: true
         }
 	];
+
+    for(var i = 0; i < data.length; i++) {
+        if (data[i].win) {
+            presents.push({
+                img: 'win/' + data[i].win,
+                text: data[i].text,
+                is_rand: false
+            });
+        }
+    }
+
 	var maxAttempts = 5; //на который раз выпадут все одинаковые
 
 	var animateRotateFunction = function($elem, angle) {
