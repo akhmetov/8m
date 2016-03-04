@@ -6,206 +6,22 @@
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="dist/jquery.ui.touch-punch.min.js"></script>
 <script async src="http://c-cdn.coub.com/embed-runner.js"></script>
-<script>
-	
-var data = [
-{
-'name':'Манн Игорь',
-'post':'Научный редактор',
-'skype':''
-},
-{
-'name':'Артем Степанов',
-'post':'Генеральный директор',
-'skype':'artstep'
-},
-{
-'name':'Шагабутдинов Ренат',
-'post':'Ассистент генерального директора',
-'skype':'shagabutdinov.r'
-},
-{
-'name':'Утробин Дмитрий',
-'post':'Коммерческий директор',
-'skype':'dm5882624',
-'win':'dm5882624.png',
-'text':'«Не иди позади меня — возможно, я не поведу тебя. Не иди впереди меня — возможно, я не последую за тобой. Иди рядом, и мы будем одним целым.»'
-},
-{
-'name':'Бабаев Виталий',
-'post':'Арт-директор (веб)',
-'skype':'saltommeister',
-'win':'saltommeister.gif',
-'text':'Оооо, какая милая! — думает парень, когда видит девушку своей мечты. Я желаю, чтобы вы стали девушкой мечты.'
-},
-{
-'name':'Салахиев Руслан',
-'post':'Аналитик',
-'skype':'salakhievrr'
-},
-{
-'name':'Капличный Сергей',
-'post':'Копирайтер-креатор',
-'skype':'skaplichniy'
-},
-{
-'name':'Фирсанов Михаил',
-'post':'SMM',
-'skype':'mikhail.firsanov'
-},
-{
-'name':'Манн Борис Борисович',
-'post':'Менеджер по выездной торговле',
-'skype':''
-},
-{
-'name':'Степанов Денис',
-'post':'Менеджер по выездной торговле',
-'skype':'aente1'
-},
-{
-'name':'Епифанов Николай',
-'post':'Руководитель службы доставки',
-'skype':'olga7757'
-},
-{
-'name':'Аристов Владимир',
-'post':'Курьер',
-'skype':''
-},
-{
-'name':'Лисутин Максим',
-'post':'Курьер',
-'skype':''
-},
-{
-'name':'Ракитский Сергей',
-'post':'Курьер',
-'skype':''
-},
-{
-'name':'Салахетдинов Раис',
-'post':'Водитель',
-'skype':''
-},
-{
-'name':'Видо Андрей',
-'post':'Водитель',
-'skype':''
-},
-{
-'name':'Харитонов Николай',
-'post':'Водитель',
-'skype':''
-},
-{
-'name':'Гришин Алексей',
-'post':'Заведующий складом',
-'skype':'Grishin.mif'
-},
-{
-'name':'Идрасов Муса',
-'post':'Комплектовщик',
-'skype':''
-},
-{
-'name':'Скрынников Лев',
-'post':'Менеджер по корпоративным продажам',
-'skype':'clayborne8'
-},
-{
-'name':'Богомолов Алексей',
-'post':'Арт-директор',
-'skype':'albo-sky'
-},
-{
-'name':'Евстратов Вадим',
-'post':'Принт-менеджер (внештатный)',
-'skype':'mr.odyz'
-},
-{
-'name':'Гаджиев Георгий',
-'post':'Технический директор',
-'skype':'g15rus',
-'win': 'crazy.gif',
-'text': 'Милые девушки, с 8 марта, женского вам счасть, такого, чтоб до дрожи в коленках. И пусть всегда у вас будет плечо на которое, при не необходимости, можно опереться.'
-},
-{
-'name':'Мазалов Евгений (Гай)',
-'post':'Ведущий программист',
-'skype':'boombech'
-},
-{
-'name':'Ахметов Олег',
-'post':'Программист',
-'skype':'oleg.akhmetov'
-},
-{
-'name':'Иванов Евгений',
-'post':'Программист',
-'skype':'tyz910',
-'win':'tyz910.gif',
-'text':'<iframe src="//coub.com/embed/4abo4?muted=false&autostart=true&originalSize=false&hideTopBar=false&startWithHD=false" allowfullscreen="true" frameborder="0" width="320" height="173"></iframe>'
-},
-{
-'name':'Хорев Вадим',
-'post':'Программист 1С',
-'skype':''
-},
-{
-'name':'Мартыненко Олег',
-'post':'Тестировщик',
-'skype':'wave_cool',
-'win':'wave_cool.jpg',
-'text':'Хорошо быть девушкой в розовом пальто,<br>'
-+ 'можно и не в розовом, но уже не то!<br>'
-+ '<br>'
-+ 'Хорошо быть женщиной в норковом манто, <br>'
-+ 'можно и не в норковом, но уже не то!<br>'
-+ '<br>'
-+ 'Хорошо быть дамою в собственном авто, <br>'
-+ 'можно и в автобусе, но уже не то!<br>'
-+ '<br>'
-+ 'Хорошо б зарплату тысяч эдак сто, <br>'
-+ 'можно и четыре, но уже не то!<br>'
-+ '<br>'
-+ 'Так девчонки милые, я всегда за то, <br>'
-+ 'чтобы в вашей жизни было б только ТО!<br>'
-+ '<br>'
-+ 'С 8 МАРТА!'
-},
-{
-'name':'Ковалев Алексей',
-'post':'Системный администратор (внештатный)',
-'skype':'Hayabusa-lelik'
-},
-{
-'name':'Фурманюк Евгений',
-'post':'Системный администратор (внештатный)',
-'skype':'furalol'
-},
-{
-'name':'Костелей Владимир',
-'post':'Веб-программист',
-'skype':'zzismd'
-},
-{
-'name':'Левин Кирилл',
-'post':'Веб-программист',
-'skype':'rekillpc'
-}
-];
-
-</script>
+<script src="data.js"></script>
 
 <style>
 body {
 	font-family:'Comic Sans','Arial',sans-serif;
 	font-size:13px;
+	background: url('img/detective.jpg');
+	background-size: cover;
+	background-position: 50% 25%;
+	background-repeat: no-repeat;
 }
 .ppl {
-	width:100px;
-	height:100px;
+	width:120px;
+	height:140px;
+	background:#FFF;
+	border:2px solid #CCC;
 	position:absolute;
 	z-index:50;
 }
@@ -216,6 +32,7 @@ body {
 	background-color:#CCC;
 	width:100px;
 	height:100px;
+	margin:10px;
 	background-size:contain;
 	display:inline-block;
 	z-index:50;
@@ -225,8 +42,8 @@ body {
 	position:absolute;
 	left:75px;
 	top:0;
-	width:200px;
-	height:50px;
+	width:auto;
+	height:auto;
 	padding:5px;
 	z-index:100;
 }
@@ -238,7 +55,8 @@ body {
 	
 }
 .ppl-desc-post {
-	
+	font-size:10px;
+	color:#333;
 }
 .ppl-desc-skype {
 	
@@ -271,7 +89,9 @@ body {
 #next button {
 	width:100%;
 	height:100%;
-    background: pink;
+    background: #FF0;
+    color:#000;
+    cursor: pointer;
     font-size: 20px;
     border-radius: 5px;
     border:0;
@@ -282,14 +102,21 @@ body {
 	left:45%;
 	top:45%;
 	display:none;
+	z-index: 1000;
+	font-size:25px;
+	background: #FFF;
+}
+#quit a {
+	color:red;
+	
 }
 #greetings {
 	position: absolute;
-	top:0;
+	top:10%;
 	left:50%;
-	bottom:0;
-	right:0;
-	padding:100px;
+	bottom:10%;
+	right:10%;
+	padding:25px;
 	background:rgba(255,255,255,0.9);
 	display: none;
 	z-index: 200;
@@ -304,8 +131,22 @@ body {
 	border-radius:50px;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size:auto;
+	background-size:contain;
 	z-index:10;
+}
+#hint {
+	position: absolute;
+	bottom:1%;
+	left:1%;
+	width:50%;
+	height:10%;
+	color:#FFF;
+	background: rgba(0,0,0,0.5);
+	padding:10px;
+	font-size:15px;
+}
+#greetings img {
+max-width:320px;
 }
 body.fail .quiz {
 	border-color:red;
@@ -325,6 +166,7 @@ body.win #td {
 <div id="greetings"></div>
 <div id="next"><button onclick="findNext();">Дальше</button></div>
 <div id="quit"><big><a href="index.html">В начало</a></big></div>
+<div id="hint">Перетаскивай предполагаемых поздравителей на его (или не его?) картинку.</div>
 <script>
 
 function randomInteger(min, max) {
@@ -366,7 +208,7 @@ function findNext() {
 						setTimeout(function() {
 							$('body').addClass('win');
 							$('#' + ui.draggable.attr('id')).remove();
-							$('#greetings').html(data[i].text).show();
+							$('#greetings').html(data[i].name + ':<br><br>' + data[i].text).show();
 							if (!$('.ppl').length) {
 								$('#next').remove();
 								$('#quit').show();
@@ -391,12 +233,23 @@ function findNext() {
 
 var boundsTop, boundsLeft, boundsWidth, boundsHeight;
 
-$(function() {
-
+function resizeWin() {
 	boundsTop = $('#panel').height() / 10;
 	boundsLeft = $('#panel').width() / 10;
-	boundsWidth = $('#panel').width() - ($('#panel').width() / 10) - 100;
-	boundsHeight = $('#panel').height() - ($('#panel').height() / 10) - 100;
+	boundsWidth = $('#panel').width() - ($('#panel').width() / 10) - 150;
+	boundsHeight = $('#panel').height() - ($('#panel').height() / 10) - 150;
+}
+
+$(function() {
+
+	resizeWin();
+
+	$(window).resize(function() {
+		resizeWin();
+		$(data).each(function(i, item) {
+			placeRand('ppl' + i);
+		});
+	});
 
 	$(data).each(function(i, item) {
 		if (item.win) {
